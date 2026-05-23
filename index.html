@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diego Serrano — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fafaf7;
+    --paper: #ffffff;
+    --ink: #1a1f2e;
+    --ink-soft: #4a5160;
+    --ink-mute: #8b9099;
+    --rule: #d8d4c8;
+    --rule-soft: #ebe7db;
+    --accent: #1f3a5f;
+    --accent-warm: #8b6f3f;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 0;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    background: rgba(250, 250, 247, 0.92);
+  }
+
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .monogram {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+
+  .nav {
+    display: flex;
+    gap: 2.5rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .nav a:hover { color: var(--accent); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 7rem 0 5rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--accent-warm);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--accent-warm);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    max-width: 18ch;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+  }
+
+  .hero-meta span strong {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  /* ===== SECTION SHARED ===== */
+  section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: baseline;
+  }
+
+  .section-num {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--accent-warm);
+  }
+
+  .section-num::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent-warm);
+    vertical-align: middle;
+    margin-right: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+  }
+
+  .about-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    padding-top: 0.5rem;
+  }
+
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 62ch;
+  }
+
+  .about-body p:last-child { margin-bottom: 0; }
+
+  /* ===== PROJECTS ===== */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: start;
+    transition: background 0.3s ease;
+  }
+
+  .project:hover {
+    background: rgba(31, 58, 95, 0.02);
+  }
+
+  .project:last-child { border-bottom: 1px solid var(--rule-soft); }
+
+  .project-meta {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    padding-top: 0.4rem;
+  }
+
+  .project-meta .category {
+    color: var(--accent-warm);
+    margin-bottom: 0.6rem;
+    display: block;
+    font-weight: 500;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .project-desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    max-width: 58ch;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tool-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-weight: 400;
+    background: var(--paper);
+  }
+
+  .project-link {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 0.4rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+
+  .project-link:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .project-link::after {
+    content: ' →';
+    font-style: normal;
+  }
+
+  /* ===== SKILLS ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .skill-col h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+
+  .skill-list li span {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    padding: 7rem 0;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .contact .eyebrow {
+    justify-content: center;
+  }
+
+  .contact .eyebrow::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--accent-warm);
+  }
+
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 45ch;
+    margin: 0 auto 3rem;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-weight: 500;
+    transition: all 0.25s ease;
+    background: transparent;
+  }
+
+  .contact-link.primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .contact-link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .fade-in.delay-1 { animation-delay: 0.15s; }
+  .fade-in.delay-2 { animation-delay: 0.3s; }
+  .fade-in.delay-3 { animation-delay: 0.45s; }
+  .fade-in.delay-4 { animation-delay: 0.6s; }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .container { padding: 0 1.5rem; }
+    .nav { display: none; }
+    .hero { padding: 4rem 0 3rem; }
+    .hero-meta { gap: 1.5rem; }
+    section { padding: 4rem 0; }
+    .section-head,
+    .about-grid,
+    .project {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .project { grid-template-columns: 1fr; }
+    .project-link { padding-top: 0; }
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .contact { padding: 4rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="monogram">Diego Serrano</div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow fade-in">Portfolio &mdash; MMXXVI</div>
+    <h1 class="fade-in delay-1">Finance, <em>built with</em> rigor and curiosity.</h1>
+    <p class="hero-sub fade-in delay-2">
+      I'm a Finance major at San Diego State with an Accounting minor, focused on financial planning &amp; analysis, modeling, and translating data into decisions. This is a record of the work I'm proudest of.
+    </p>
+    <div class="hero-meta fade-in delay-3">
+      <span>Based in <strong>San Diego, CA</strong></span>
+      <span>Studying at <strong>SDSU</strong></span>
+      <span>Certification <strong>FP&amp;A Professional</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">N° 01</div>
+      <h2 class="section-title">A short <em>introduction</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-label">Background</div>
+      <div class="about-body">
+        <p>
+          I'm pursuing a degree in Finance with a minor in Accounting at San Diego State University. My focus is the work behind the numbers &mdash; building three-statement models, running budget-to-actual variance analyses, designing rolling forecasts, and evaluating capital decisions through NPV and IRR.
+        </p>
+        <p>
+          I hold an FP&amp;A Professional certification and work fluently in Excel, Power Query, PivotTables, Power BI, and DAX. Before pursuing finance full-time, I led teams in the service industry, where I learned the discipline of running operations under pressure &mdash; balancing margins, people, and time without losing sight of the work.
+        </p>
+        <p>
+          What I bring to a team: clean analytical thinking, attention to where the assumptions actually live in a model, and the patience to sit with a problem until the answer is right.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WORK / PROJECTS ========== -->
+<section id="work">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">N° 02</div>
+      <h2 class="section-title">Selected <em>work</em></h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- ============================================================ -->
+      <!-- PROJECT CARD TEMPLATE                                         -->
+      <!-- To add a new project: copy one .project block below,          -->
+      <!-- paste it in, and change the text & link.                      -->
+      <!-- ============================================================ -->
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="category">Financial Modeling</span>
+          2025
+        </div>
+        <div>
+          <h3 class="project-title">Three-Statement Operating Model</h3>
+          <p class="project-desc">
+            [Placeholder] A fully integrated income statement, balance sheet, and cash flow model with linked assumptions, scenario toggles, and sensitivity analysis. Built for a consumer retail case study.
+          </p>
+          <div class="project-tools">
+            <span class="tool-tag">Excel</span>
+            <span class="tool-tag">Modeling</span>
+            <span class="tool-tag">Scenarios</span>
+          </div>
+        </div>
+        <a class="project-link" href="#">View case</a>
+      </article>
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="category">FP&amp;A Analytics</span>
+          2025
+        </div>
+        <div>
+          <h3 class="project-title">Budget-to-Actual Variance Dashboard</h3>
+          <p class="project-desc">
+            [Placeholder] An interactive Power BI dashboard tracking departmental variance against quarterly budgets, with drill-down by cost center and a rolling 13-week forecast view.
+          </p>
+          <div class="project-tools">
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">DAX</span>
+            <span class="tool-tag">Power Query</span>
+          </div>
+        </div>
+        <a class="project-link" href="#">View dashboard</a>
+      </article>
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="category">Valuation</span>
+          2025
+        </div>
+        <div>
+          <h3 class="project-title">DCF Valuation &amp; Investment Memo</h3>
+          <p class="project-desc">
+            [Placeholder] A discounted cash flow valuation with terminal value sensitivity, WACC build, and a written investment memo summarizing the thesis, risks, and recommended position.
+          </p>
+          <div class="project-tools">
+            <span class="tool-tag">DCF</span>
+            <span class="tool-tag">NPV / IRR</span>
+            <span class="tool-tag">Memo</span>
+          </div>
+        </div>
+        <a class="project-link" href="#">Read memo</a>
+      </article>
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="category">Operations &amp; Strategy</span>
+          2026
+        </div>
+        <div>
+          <h3 class="project-title">Supply Chain Optimization Study</h3>
+          <p class="project-desc">
+            [Placeholder] A scenario analysis comparing onshore, nearshore, and offshore network designs against cost, lead time, and risk, with a recommended DC location and quantified strategic gain.
+          </p>
+          <div class="project-tools">
+            <span class="tool-tag">Optimization</span>
+            <span class="tool-tag">Network Design</span>
+            <span class="tool-tag">Excel</span>
+          </div>
+        </div>
+        <a class="project-link" href="#">View study</a>
+      </article>
+
+      <!-- ============================================================ -->
+      <!-- END OF PROJECTS                                               -->
+      <!-- Copy one of the <article class="project">…</article> blocks  -->
+      <!-- above and paste it here to add a new project.                -->
+      <!-- ============================================================ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">N° 03</div>
+      <h2 class="section-title">Tools &amp; <em>capabilities</em></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>Modeling &amp; Analysis</h3>
+        <ul class="skill-list">
+          <li>Three-Statement Models <span>advanced</span></li>
+          <li>Rolling Forecasts <span>advanced</span></li>
+          <li>Variance Analysis <span>advanced</span></li>
+          <li>NPV &amp; IRR <span>advanced</span></li>
+          <li>Scenario Planning <span>proficient</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <h3>Tools &amp; Software</h3>
+        <ul class="skill-list">
+          <li>Microsoft Excel <span>advanced</span></li>
+          <li>Power BI <span>advanced</span></li>
+          <li>Power Query <span>advanced</span></li>
+          <li>DAX <span>proficient</span></li>
+          <li>PivotTables <span>advanced</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <h3>Professional</h3>
+        <ul class="skill-list">
+          <li>FP&amp;A Certification <span>credential</span></li>
+          <li>Team Leadership <span>service industry</span></li>
+          <li>Financial Reporting <span>proficient</span></li>
+          <li>Process Documentation <span>proficient</span></li>
+          <li>Stakeholder Comm. <span>proficient</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's <em>talk</em> about the work.</h2>
+    <p class="contact-sub">
+      Open to internships, full-time analyst roles, and any conversation about finance, data, or building good models.
+    </p>
+    <div class="contact-links">
+      <a class="contact-link primary" href="mailto:diegoserrano.business@gmail.com">Email</a>
+      <a class="contact-link" href="https://linkedin.com/in/diegomserrano" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+    <span>© Diego Serrano · 2026</span>
+    <span>San Diego, California</span>
+  </div>
+</footer>
+
+</body>
+</html>
