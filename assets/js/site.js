@@ -118,11 +118,25 @@
   });
 
   /* ---------- Certifications ---------- */
+  // Logo: uses c.logo if set, otherwise assets/img/logos/<issuer>.png (e.g. cfi.png, forage.png).
+  // If the image is missing, the short "mark" text shows instead.
+  const logoSrc = (c) => c.logo || (c.issuer ? `assets/img/logos/${c.issuer.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png` : "");
+  const logo = (c) => `
+    <span class="logo-box${logoSrc(c) ? "" : " nologo"}">
+      ${logoSrc(c) ? `<img src="${esc(logoSrc(c))}" alt="${esc(c.issuer)} logo" loading="lazy" onerror="this.parentNode.classList.add('nologo');this.remove()">` : ""}
+      <b>${esc(c.mark)}</b>
+    </span>`;
+
   document.querySelectorAll('[data-render="certs"]').forEach((el) => {
-    el.className = "cert-stagger";
+    el.className = "cert-grid";
     el.innerHTML = C.map((c) => `
-      <button class="cbox" data-open="c/${esc(c.id)}" aria-label="Open ${esc(c.title)}">
-        <span>${esc(c.title)}${c.issuer ? `<small>(${esc(c.issuer)})</small>` : ""}</span>
+      <button class="ccard" data-open="c/${esc(c.id)}" aria-label="Open ${esc(c.title)}">
+        ${logo(c)}
+        <span class="ccard-text">
+          <strong>${esc(c.title)}</strong>
+          <small>${esc([c.issuer, c.date].filter(Boolean).join(", "))}</small>
+        </span>
+        <span class="ccard-go" aria-hidden="true">View</span>
       </button>`).join("");
   });
 
@@ -190,7 +204,7 @@
     const prev = C[(i - 1 + C.length) % C.length];
     const next = C[(i + 1) % C.length];
     return `
-      <div class="pop-side cert-side"><span class="seal">${esc(c.mark)}</span></div>
+      <div class="pop-side cert-side">${logo(c)}</div>
       <div class="pop-main">
         <div class="pop-date">${esc([c.issuer, c.date].filter(Boolean).join("  /  ") || "Certification")}</div>
         <h2 id="pop-title">${esc(c.title)}</h2>
