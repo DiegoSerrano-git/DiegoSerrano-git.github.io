@@ -308,9 +308,9 @@ window.RESUME = {
       role: "Sales Associate",
       date: "June 2015 – Aug 2017",
       bullets: [
-        "Contributed to a 10% increase in daily transaction speed by helping implement and operate the Point of Sale (POS) system, streamlining customer checkouts during peak retail hours",
-        "Managed localized wine deliveries to residential clients and optimized retail floor merchandising, ensuring full stock availability and boosting repeat customer satisfaction scores",
-        "Coordinated daily inventory management and shelf stocking, ensuring accurate stock rotation and full product availability while collaborating with vendors to highlight key promotional items",
+        "Helped implement and operate a new POS system, contributing to a 10% increase in daily transaction speed during peak hours",
+        "Handled residential wine deliveries and maintained retail floor merchandising to keep products fully stocked",
+        "Managed daily inventory, stock rotation, and shelf stocking, and worked with vendors to feature promotional items",
       ],
     },
   ],
