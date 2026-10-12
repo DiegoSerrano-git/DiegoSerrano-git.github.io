@@ -67,7 +67,9 @@ window.PROJECTS = [
     ],
     tools: ["Excel", "Forecasting"],
     image: "",
-    links: [],
+       links: [
+     { label: "Download workbook", url: "assets/files/bhe-13-week-cash-flow.xlsx" },
+   ],
   },
   {
     id: "valuation-case",
