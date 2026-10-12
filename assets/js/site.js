@@ -151,7 +151,6 @@
       ${S.resumePdf ? `<div class="dl"><a class="btn-line" href="${esc(S.resumePdf)}" download>${icon.down}Download PDF</a></div>` : ""}
       ${block("Education", edu)}
       ${block("Work Experience", exp)}
-      ${block("Projects", proj)}
       ${block("Skills", skills)}`;
   }
 
