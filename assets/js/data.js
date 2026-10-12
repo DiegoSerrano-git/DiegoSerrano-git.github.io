@@ -203,7 +203,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "Corporate Finance Institute's FP&A professional program.",
     covers: ["Three-statement modeling", "Budget-to-actual variance analysis", "Rolling forecasts", "NPV and IRR"],
-    credentialUrl: "",   // paste your verification link to show a "Verify credential" button
+    credentialUrl: "https://credentials.corporatefinanceinstitute.com/000d5391-bdf7-46cf-a01b-1931fc505781#acc.z4bmqXsf",   // paste your verification link to show a "Verify credential" button
   },
   {
     id: "scenario-sensitivity",
@@ -213,7 +213,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "Building scenario and sensitivity analysis into financial models.",
     covers: [],
-    credentialUrl: "",
+    credentialUrl: "https://credentials.corporatefinanceinstitute.com/e997780b-41eb-49ca-9e1d-6a9b1f51398b#acc.B6kbuHpM",
   },
   {
     id: "ib-sim",
@@ -223,7 +223,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "A virtual job simulation of investment banking analyst tasks.",
     covers: [],
-    credentialUrl: "",
+    credentialUrl: "https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/YD2kY95RQxQtXxFTS_Sj7temL583QAYpHXD_XAcwzuvPy5Rnx3ixL_1772256539922_completion_certificate.pdf",
   },
   {
     id: "econ-fpa",
@@ -233,7 +233,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "Using economic analysis to inform planning and forecasting.",
     covers: [],
-    credentialUrl: "",
+    credentialUrl: "https://credentials.corporatefinanceinstitute.com/a2d6ba67-561b-4202-80ee-c09e84e98adb#acc.mcQePwdi",
   },
   {
     id: "budgeting",
@@ -243,7 +243,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "How organizations plan, build and manage budgets.",
     covers: [],
-    credentialUrl: "",
+    credentialUrl: "https://credentials.corporatefinanceinstitute.com/ad2ffaf8-eec4-4231-8647-4020ccf8bf8e#acc.FT1C8E0h",
   },
   {
     id: "da-sim",
@@ -253,7 +253,7 @@ window.CERTIFICATIONS = [
     date: "",
     summary: "A virtual job simulation of data analyst tasks.",
     covers: [],
-    credentialUrl: "",
+    credentialUrl: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_XAcwzuvPy5Rnx3ixL_1772138982320_completion_certificate.pdf",
   },
   {
     id: "bida",
