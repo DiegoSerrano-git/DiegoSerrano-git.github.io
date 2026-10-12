@@ -76,10 +76,7 @@ h1, h2, h3, h4 { font-family: var(--head); font-weight: 400; letter-spacing: -.0
 .band { background: var(--black); color: #fff; padding: clamp(72px, 10vw, 136px) 0; text-align: center; }
 .band h2 { font-size: clamp(28px, 3vw, 36px); margin-bottom: 28px; }
 .band .copy { text-align: left; max-width: 660px; margin: 0 auto; font-size: 14.5px; }
-.band .copy p {
-  background: linear-gradient(90deg, #9DB0FF 0%, #FFFFFF 35%, #FFD6A8 70%, #FFB3C7 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+   .band .copy p { color: #FFFFFF; }
 .band .btn-box { margin-top: clamp(48px, 7vw, 88px); }
 
 /* ---------- Buttons ---------- */
