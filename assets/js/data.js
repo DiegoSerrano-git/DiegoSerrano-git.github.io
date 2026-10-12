@@ -315,7 +315,7 @@ window.RESUME = {
     },
   ],
   skills: [
-    { label: "Financial Analysis", text: "Financial Modeling, FP&A, Budgeting & Forecasting, Variance Analysis, Cash Flow Analysis, Ad-Hoc Reporting, Revenue Recognition" },
+    { label: "Financial Analysis", text: "Financial Modeling, Financial Statement Analysis, Budgeting & Forecasting, Variance Analysis, Scenario/Sensitivity Analysis, Cash Flow Analysis, Ad-Hoc Reporting, Revenue Recognition, GAAP" },
     { label: "Technical Skills", text: "Advanced Excel/Google Sheets, Microsoft Office Suite, Power BI, SQL, Tableau, Python" },
     { label: "Languages", text: "Fluent in English and Spanish" },
   ],
